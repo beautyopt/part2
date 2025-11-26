@@ -54,7 +54,7 @@ a { text-decoration: none; }
     color: #4a6cff;
 }
 
-/* Desktop Catalog Button */
+/* Catalog Button */
 .catalog-btn {
     background: #4a6cff;
     color: white;
@@ -65,7 +65,6 @@ a { text-decoration: none; }
     cursor: pointer;
     transition: 0.2s;
 }
-
 .catalog-btn:hover {
     background: #354dcc;
 }
@@ -90,6 +89,8 @@ a { text-decoration: none; }
     animation: fadeIn 0.3s ease;
 }
 
+/* ⭐ Главное изменение: меню открывается ТОЛЬКО при наведении на кнопку */
+.catalog-btn:hover + .mega-menu,
 .catalog:hover .mega-menu {
     display: flex;
 }
@@ -298,8 +299,6 @@ h1 {
     color: #4a6cff;
 }
 
-/* ------------------ END ------------------ */
-
 </style>
 
 <script>
@@ -446,29 +445,5 @@ function toggleMenu() {
         <div class="catalog-card">
             <img src="https://via.placeholder.com/300x200/e8f3ff/4a6cff?text=Korea" alt="">
             <strong>Корейская косметика</strong>
-            <a href="#">Смотреть →</a>
-        </div>
+            <a href="#">Смотреть →
 
-        <div class="catalog-card">
-            <img src="https://via.placeholder.com/300x200/f0f4ff/4a6cff?text=Makeup" alt="">
-            <strong>Макияж</strong>
-            <a href="#">Смотреть →</a>
-        </div>
-
-        <div class="catalog-card">
-            <img src="https://via.placeholder.com/300x200/eaf2ff/4a6cff?text=Hair" alt="">
-            <strong>Волосы</strong>
-            <a href="#">Смотреть →</a>
-        </div>
-
-        <div class="catalog-card">
-            <img src="https://via.placeholder.com/300x200/edf4ff/4a6cff?text=Body" alt="">
-            <strong>Тело</strong>
-            <a href="#">Смотреть →</a>
-        </div>
-
-    </div>
-</section>
-
-</body>
-</html>
