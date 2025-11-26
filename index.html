@@ -4,54 +4,471 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BeautyOpt.store</title>
+
 <style>
+
+/* ------------------ БАЗА ------------------ */
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #f5e6ff, #ffe6f2);
-    text-align: center;
-    padding: 40px;
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(135deg, #e8f0ff, #f3f7ff);
     color: #333;
 }
-.card {
-    background: #ffffffcc;
-    padding: 30px;
-    border-radius: 20px;
-    max-width: 420px;
-    margin: auto;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    backdrop-filter: blur(6px);
+
+a { text-decoration: none; }
+
+/* Контейнеры */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
+
+/* ------------------ ШАПКА ------------------ */
+
+.header {
+    width: 100%;
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+}
+
+.logo-text {
+    font-size: 26px;
+    font-weight: 800;
+    color: #4a6cff;
+}
+
+/* Desktop Catalog Button */
+.catalog-btn {
+    background: #4a6cff;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.catalog-btn:hover {
+    background: #354dcc;
+}
+
+.catalog {
+    position: relative;
+}
+
+/* Mega Menu */
+.mega-menu {
+    display: none;
+    position: absolute;
+    top: 120%;
+    left: 0;
+    width: 780px;
+    padding: 25px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    display: flex;
+    gap: 40px;
+    animation: fadeIn 0.3s ease;
+}
+
+.catalog:hover .mega-menu {
+    display: flex;
+}
+
+.mega-column h3 {
+    font-size: 15px;
+    font-weight: bold;
+    color: #4b4b4b;
+    margin-bottom: 12px;
+}
+
+.mega-column a {
+    display: block;
+    color: #333;
+    padding: 6px 0;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.mega-column a:hover {
+    color: #4a6cff;
+}
+
+/* Icons */
+.icon-btn {
+    font-size: 22px;
+    margin-left: 20px;
+    color: #333;
+    transition: 0.2s;
+}
+
+.icon-btn:hover {
+    transform: scale(1.15);
+    color: #4a6cff;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ------------------ MOBILE MENU ------------------ */
+
+.mobile-menu-btn {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 270px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+    padding: 25px;
+    transition: 0.3s;
+    z-index: 2000;
+}
+
+.mobile-menu.open {
+    right: 0;
+}
+
+.mobile-menu h3 {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 10px 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+
+/* Mobile triggers */
+@media (max-width: 900px) {
+    .catalog, .mega-menu { display: none; }
+
+    .mobile-menu-btn { display: block; }
+
+    .header-right { display: none; }
+}
+
+/* ------------------ HERO CARD ------------------ */
+
+.hero {
+    max-width: 450px;
+    margin: 60px auto 30px;
+    padding: 30px;
+    text-align: center;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.75);
+    padding: 30px;
+    border-radius: 22px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.07);
+    backdrop-filter: blur(8px);
+}
+
 h1 {
     font-size: 28px;
     margin-bottom: 10px;
+    color: #2c3e50;
 }
+
 .btn {
     display: block;
     padding: 14px 20px;
     border-radius: 14px;
     margin: 12px 0;
-    text-decoration: none;
     font-size: 18px;
     font-weight: bold;
-    background: #8a48ff;
+    background: #4a6cff;
     color: white;
     transition: 0.2s;
 }
+
 .btn:hover {
     transform: scale(1.04);
-    background: #6d32d6;
+    background: #354dcc;
 }
+
+/* ------------------ BRANDS BLOCK ------------------ */
+
+.brands {
+    text-align: center;
+    margin: 40px auto 20px;
+    padding: 20px;
+}
+
+.brands h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.brand-item {
+    background: white;
+    border-radius: 14px;
+    padding: 18px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #4a6cff;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+}
+
+/* ------------------ CATALOG CARDS ------------------ */
+
+.catalog-section {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.catalog-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.catalog-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+    gap: 22px;
+    padding: 10px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.catalog-card {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    transition: 0.2s;
+}
+
+.catalog-card:hover {
+    transform: scale(1.03);
+}
+
+.catalog-card img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.catalog-card a {
+    display: inline-block;
+    margin-top: 8px;
+    font-weight: bold;
+    color: #4a6cff;
+}
+
+/* ------------------ END ------------------ */
+
 </style>
+
+<script>
+function toggleMenu() {
+    document.querySelector('.mobile-menu').classList.toggle('open');
+}
+</script>
+
 </head>
 <body>
-<div class="card">
-<h1>BeautyOpt.store</h1>
-<p>Оптово‑розничный магазин косметики. Оригинальная продукция.</p>
 
-<a class="btn" href="https://wa.me/77472008343">WhatsApp</a>
-<a class="btn" href="https://b2b.moysklad.ru/public/IjObMZUkbhLA/catalog">Каталог</a>
+<!-- ---------------- ШАПКА ---------------- -->
+<header class="header">
 
+    <div class="header-left">
+        <div class="logo-text">BeautyOpt</div>
+
+        <div class="catalog">
+            <button class="catalog-btn">Каталог ▼</button>
+
+            <div class="mega-menu">
+
+                <div class="mega-column">
+                    <h3>BEAUTY</h3>
+                    <a href="#">All Beauty</a>
+                    <a href="#">Body Care</a>
+                    <a href="#">Hair Care</a>
+                    <a href="#">Hand & Foot Care</a>
+                    <a href="#">Health</a>
+                    <a href="#">Makeup</a>
+                    <a href="#">Men's Grooming</a>
+                    <a href="#">Oral Care</a>
+                    <a href="#">Skin Care</a>
+                    <a href="#">Sun Care</a>
+                    <a href="#">Tools & Brushes</a>
+                </div>
+
+                <div class="mega-column">
+                    <h3>KOREAN BRANDS</h3>
+                    <a href="#">MEDIPEEL</a>
+                    <a href="#">Torriden</a>
+                    <a href="#">ETUDE</a>
+                    <a href="#">beplain</a>
+                    <a href="#">I'm from</a>
+                    <a href="#">Pyunkang Yul</a>
+                    <a href="#">APRILSKIN</a>
+                    <a href="#">APLB</a>
+                    <a href="#">romand</a>
+                    <a href="#">S.NATURE</a>
+                    <a href="#">Popular Brands</a>
+                </div>
+
+                <div class="mega-column">
+                    <h3>JAPANESE BRANDS</h3>
+                    <a href="#">Shiseido</a>
+                    <a href="#">LION</a>
+                    <a href="#">Canmake</a>
+                    <a href="#">Kao</a>
+                    <a href="#">Rohto Mentholatum</a>
+                    <a href="#">KAMINOMOTO</a>
+                    <a href="#">Kose</a>
+                    <a href="#">Nivea Japan</a>
+                    <a href="#">APAGARD</a>
+                    <a href="#">SK-II</a>
+                    <a href="#">Popular Brands</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+
+    <div class="header-right">
+        <a href="#" class="icon-btn">👤</a>
+        <a href="#" class="icon-btn">⭐</a>
+    </div>
+
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu">
+    <h3>Категории</h3>
+    <a href="#">All Beauty</a>
+    <a href="#">Body Care</a>
+    <a href="#">Hair Care</a>
+    <a href="#">Makeup</a>
+    <a href="#">Skin Care</a>
+    <a href="#">Men's Grooming</a>
+
+    <h3>Корейские бренды</h3>
+    <a href="#">MEDIPEEL</a>
+    <a href="#">Torriden</a>
+    <a href="#">ETUDE</a>
+
+    <h3>Японские бренды</h3>
+    <a href="#">Shiseido</a>
+    <a href="#">LION</a>
+    <a href="#">Kao</a>
 </div>
+
+<!-- ---------------- ГЛАВНАЯ КАРТОЧКА ---------------- -->
+<section class="hero">
+    <div class="card">
+        <h1>BeautyOpt.store</h1>
+        <p>Оптово-розничный магазин косметики. Оригинальная продукция.</p>
+
+        <a class="btn" href="https://wa.me/77472008343">WhatsApp</a>
+        <a class="btn" href="https://b2b.moysklad.ru/public/IjObMZUkbhLA/catalog">Каталог</a>
+    </div>
+</section>
+
+<!-- ---------------- БРЕНДЫ ---------------- -->
+<section class="brands">
+    <h2>Популярные бренды</h2>
+    <div class="brands-grid">
+        <div class="brand-item">Shiseido</div>
+        <div class="brand-item">MEDIPEEL</div>
+        <div class="brand-item">Canmake</div>
+        <div class="brand-item">Pyunkang Yul</div>
+        <div class="brand-item">APLB</div>
+        <div class="brand-item">SK-II</div>
+    </div>
+</section>
+
+<!-- ---------------- КАТАЛОГ КАРТОЧКАМИ ---------------- -->
+<section class="catalog-section">
+    <h2>Категории каталога</h2>
+
+    <div class="catalog-cards">
+
+        <div class="catalog-card">
+            <img src="https://via.placeholder.com/300x200/edf2ff/4a6cff?text=Skin+Care" alt="">
+            <strong>Уходовая косметика</strong>
+            <a href="#">Смотреть →</a>
+        </div>
+
+        <div class="catalog-card">
+            <img src="https://via.placeholder.com/300x200/e7f4ff/4a6cff?text=Japan" alt="">
+            <strong>Японская косметика</strong>
+            <a href="#">Смотреть →</a>
+        </div>
+
+        <div class="catalog-card">
+            <img src="https://via.placeholder.com/300x200/e8f3ff/4a6cff?text=Korea" alt="">
+            <strong>Корейская косметика</strong>
+            <a href="#">Смотреть →</a>
+        </div>
+
+        <div class="catalog-card">
+            <img src="https://via.placeholder.com/300x200/f0f4ff/4a6cff?text=Makeup" alt="">
+            <strong>Макияж</strong>
+            <a href="#">Смотреть →</a>
+        </div>
+
+        <div class="catalog-card">
+            <img src="https://via.placeholder.com/300x200/eaf2ff/4a6cff?text=Hair" alt="">
+            <strong>Волосы</strong>
+            <a href="#">Смотреть →</a>
+        </div>
+
+        <div class="catalog-card">
+            <img src="https://via.placeholder.com/300x200/edf4ff/4a6cff?text=Body" alt="">
+            <strong>Тело</strong>
+            <a href="#">Смотреть →</a>
+        </div>
+
+    </div>
+</section>
+
 </body>
 </html>
